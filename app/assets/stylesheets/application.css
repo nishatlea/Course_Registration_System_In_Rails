@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+h4{
+    color: orange;
+}
+footer{
+    color: orange;
+}
