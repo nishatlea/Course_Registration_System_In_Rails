@@ -13,9 +13,38 @@
  *= require_tree .
  *= require_self
  */
-h4{
-    color: orange;
+*{
+    margin:0;
+    padding:0;
 }
-footer{
-    color: orange;
+#sidebar{
+    position: fixed;
+    width: 30%;
+    height: 100%;
+    background-color:black;
+    left:-20%;
+}
+#sidebar li{
+    color: white;
+    font-size: 10px;
+    padding: 30px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+.toggle-btn{
+    position: absolute;
+    left: 80%;
+    top:15px;
+}
+.toggle-btn span{
+    display: block;
+    background-color: white;
+    width: 30px;
+    height: 5px;
+    margin: 3px;
+}
+#sidebar.active{
+    text-align:right;
+    left:0%;
+
 }

@@ -1,3 +1,12 @@
+<!Doctype html>
+<header>
+  <script type="text/javascript">
+      function togglemenu(){
+          document.getElementById('sidebar').classList.toggle('active');
+      }
+  </script>
+</header>
+
 <div class="row grow w-100">
   <div class="col-12  py-3 "style="background-color: #231832" >
 
@@ -5,25 +14,27 @@
 
   </div>
 
-  <div class="col-3 py-3 h-200 w-5  text-light text-center "  style="background-color: #161B38">
+  <div class="col-3 py-3 h-200 w-5  text-light text-center "  style="background-color: #161B38"  id="sidebar" onclick="togglemenu()">
     <h3 class="text-bg-secondary large"> Menu </h3>
+    <div class="toggle-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <br>
+    <br>
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+      <li class="nav-item text-center border border-white border-start-0 border-end-0 text-wrap  badge"> <%= link_to 'Home', home_index_path, class:"nav-link" %></li>
+      <li class="nav-item text-center border border-white border-start-0 border-end-0 text-wrap  badge"> <%= link_to 'Sign_UP', new_user_registration_path, class:"nav-link" %></li>
+      <li class="nav-item text-center border border-white border-start-0 border-end-0 text-wrap  badge"> <%= link_to 'Sign_IN', new_user_session_path, class:"nav-link" %></li>
 
 
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-        <li class="nav-item text-center border border-white border-start-0 border-end-0 text-wrap  badge"> <%= link_to 'Home', home_index_path, class:"nav-link" %></li>
-    <li class="nav-item text-center border border-white border-start-0 border-end-0 text-wrap  badge"> <%= link_to 'Sign_UP', new_user_registration_path, class:"nav-link" %></li>
-        <li class="nav-item text-center border border-white border-start-0 border-end-0 text-wrap  badge"> <%= link_to 'Sign_IN', new_user_session_path, class:"nav-link" %></li>
-
-
-      </ul>
-
-
-
-
+    </ul>
 
 
   </div>
-  <div class="main col-9 bg-light min-vh-100 py-3">
+  <div class="main col-9 bg-light min-vh-100 py-3 w-500 " style="text-align: right ">
     <h4>Main</h4>
     <%= yield %>
     <p class="mb-5">Sriracha biodiesel taxidermy organic post-ironic, Intelligentsia salvia mustache 90's code editing brunch. Butcher polaroid VHS art party, hashtag Brooklyn deep v PBR narwhal sustainable mixtape
@@ -38,3 +49,4 @@
     <a class="text-light" href="https://github.com/nishatlea">Nishat Lea </a>
   </div>
 </div>
+</html>
