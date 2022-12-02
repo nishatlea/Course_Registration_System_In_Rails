@@ -18,7 +18,7 @@
     padding:0;
 }
 #sidebar{
-    position: fixed;
+    position:fixed;
     width: 30%;
     height: 100%;
     background-color:black;
@@ -29,11 +29,11 @@
     font-size: 10px;
     padding: 30px;
     border-bottom: 1px solid gray;
-    text-align: center;
+    text-align: right;
 }
 .toggle-btn{
     position: absolute;
-    left: 80%;
+    left: 75%;
     top:15px;
 }
 .toggle-btn span{
@@ -44,7 +44,23 @@
     margin: 3px;
 }
 #sidebar.active{
-    text-align:right;
+    text-align:center;
     left:0%;
 
 }
+#main-col{
+    color: #0048CD;
+    padding-left: 200px;
+    text-align: justify;
+}
+#main-col.active{
+    padding-left: 400px;
+    text-align: justify;
+}
+.nav-link{
+    text-align: right;
+
+}
+/*.nav-link active{*/
+/*    text-align: center;*/
+/*}*/

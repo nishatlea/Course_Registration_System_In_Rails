@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_21_113730) do
+ActiveRecord::Schema.define(version: 2022_12_01_103515) do
 
   create_table "curriculums", force: :cascade do |t|
     t.string "coursename"
@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 2022_11_21_113730) do
     t.index ["user_id"], name: "index_semesters_on_user_id"
   end
 
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "fathers_name"
+    t.string "mothers_name"
+    t.string "email"
+    t.string "mobile"
+    t.string "image"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -48,4 +61,5 @@ ActiveRecord::Schema.define(version: 2022_11_21_113730) do
 
   add_foreign_key "curriculums", "users"
   add_foreign_key "semesters", "users"
+  add_foreign_key "students", "users"
 end
