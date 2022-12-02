@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Semester Curriculums</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Semester</th>
+      <th>Curriculum</th>
+      <th>References</th>
+      <th>Grade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @semester_curriculums.each do |semester_curriculum| %>
+      <tr>
+        <td><%= semester_curriculum.semester_id %></td>
+        <td><%= semester_curriculum.curriculum_id %></td>
+        <td><%= semester_curriculum.references %></td>
+        <td><%= semester_curriculum.grade %></td>
+        <td><%= link_to 'Show', semester_curriculum %></td>
+        <td><%= link_to 'Edit', edit_semester_curriculum_path(semester_curriculum) %></td>
+        <td><%= link_to 'Destroy', semester_curriculum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Semester Curriculum', new_semester_curriculum_path %>

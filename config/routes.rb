@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :semester_curriculums
   resources :students
   resources :semesters
   resources :curriculums

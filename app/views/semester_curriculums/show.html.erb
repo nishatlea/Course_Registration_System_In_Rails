@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Semester:</strong>
+  <%= @semester_curriculum.semester_id %>
+</p>
+
+<p>
+  <strong>Curriculum:</strong>
+  <%= @semester_curriculum.curriculum_id %>
+</p>
+
+<p>
+  <strong>References:</strong>
+  <%= @semester_curriculum.references %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @semester_curriculum.grade %>
+</p>
+
+<%= link_to 'Edit', edit_semester_curriculum_path(@semester_curriculum) %> |
+<%= link_to 'Back', semester_curriculums_path %>
