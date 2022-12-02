@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "password", autofocus: "password" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -30,15 +30,25 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
+<script>
+  function myFunction(){
+      var checkBox = document.getElementById("myCheck");
+      if (checkBox.checked == true){
+         <%  current_user.is_admin = true %>
 
+      } else {
+          <% current_user.is_admin = false %>
+      }
+  }
+</script>
 
     <div class="field">
-      <%= f.number_field :is_admin %>
+      <%= f.check_box :is_admin, id:'myCheck', onclick: "myFunction()", autofocus: true %>
       <%= f.label :is_admin %>
     </div>
 
 
-  <div class="actions">
+  <div class="actions", id="onsubmit">
     <%= f.submit "Update" %>
   </div>
 <% end %>

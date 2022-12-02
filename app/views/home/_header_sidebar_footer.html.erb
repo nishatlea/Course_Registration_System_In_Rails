@@ -43,7 +43,7 @@
         <% puts(current_user.is_admin?) %>
       <li class="nav-item text-center border border-white border-start-0 border-end-0 text-wrap  badge" > <%= link_to 'Edit User Profile', edit_user_registration_path, class:"nav-link" %></li>
 
-        <% if current_user.is_admin == '1'  %>
+        <% if current_user.is_admin == true  %>
           <%# puts(current_user.name) ;%>
         <li class="nav-item text-center border border-white border-start-0 border-end-0 text-wrap  badge" > <%= link_to 'Admin', admin_index_path, class:"nav-link" %></li>
          <% else %>

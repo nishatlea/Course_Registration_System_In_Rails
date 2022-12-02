@@ -22,9 +22,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :is_admin %><br />
-    <%= f.number_field :is_admin %>
+    <%= f.check_box :is_admin, id:'myCheck' %>
+    <%= f.label :is_admin %>
   </div>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>
