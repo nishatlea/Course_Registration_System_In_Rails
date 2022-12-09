@@ -16,8 +16,8 @@ class SemesterCurriculumsTest < ApplicationSystemTestCase
 
     fill_in "Curriculum", with: @semester_curriculum.curriculum_id
     fill_in "Grade", with: @semester_curriculum.grade
-    fill_in "References", with: @semester_curriculum.references
     fill_in "Semester", with: @semester_curriculum.semester_id
+    fill_in "Student", with: @semester_curriculum.student_id
     click_on "Create Semester curriculum"
 
     assert_text "Semester curriculum was successfully created"
@@ -30,8 +30,8 @@ class SemesterCurriculumsTest < ApplicationSystemTestCase
 
     fill_in "Curriculum", with: @semester_curriculum.curriculum_id
     fill_in "Grade", with: @semester_curriculum.grade
-    fill_in "References", with: @semester_curriculum.references
     fill_in "Semester", with: @semester_curriculum.semester_id
+    fill_in "Student", with: @semester_curriculum.student_id
     click_on "Update Semester curriculum"
 
     assert_text "Semester curriculum was successfully updated"

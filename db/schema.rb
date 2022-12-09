@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_02_060419) do
+ActiveRecord::Schema.define(version: 2022_12_09_082819) do
 
   create_table "curriculums", force: :cascade do |t|
     t.string "coursename"
@@ -20,6 +20,27 @@ ActiveRecord::Schema.define(version: 2022_12_02_060419) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_curriculums_on_user_id"
+  end
+
+  create_table "enrolls", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "semester_id"
+    t.integer "curriculum_id"
+    t.integer "grade"
+    t.integer "semester_curriculums_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["semester_curriculums_id"], name: "index_enrolls_on_semester_curriculums_id"
+  end
+
+  create_table "semester_curriculums", force: :cascade do |t|
+    t.integer "semester_id", null: false
+    t.integer "curriculum_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "student_id"
+    t.index ["curriculum_id"], name: "index_semester_curriculums_on_curriculum_id"
+    t.index ["semester_id"], name: "index_semester_curriculums_on_semester_id"
   end
 
   create_table "semesters", force: :cascade do |t|
@@ -60,6 +81,9 @@ ActiveRecord::Schema.define(version: 2022_12_02_060419) do
   end
 
   add_foreign_key "curriculums", "users"
+  add_foreign_key "enrolls", "semester_curriculums", column: "semester_curriculums_id"
+  add_foreign_key "semester_curriculums", "curriculums"
+  add_foreign_key "semester_curriculums", "semesters"
   add_foreign_key "semesters", "users"
   add_foreign_key "students", "users"
 end

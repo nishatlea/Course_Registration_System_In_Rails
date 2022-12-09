@@ -1,0 +1,25 @@
+<%= form_with(model: enroll, local: true) do |form| %>
+  <% if enroll.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(enroll.errors.count, "error") %> prohibited this curriculum from being saved:</h2>
+
+      <ul>
+        <% enroll.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <% if current_user.is_admin == true %>
+    <div class="field">
+      <%= form.label :grade %>
+      <%= form.text_field :grade %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

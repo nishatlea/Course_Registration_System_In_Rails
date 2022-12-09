@@ -1,20 +1,21 @@
-<%= form_with(url: semester_course_semester_curriculums_path, method:"post",  class:'form', id:'select_all_course') do |form| %>
-  <%# if semester_course_semester_curriculums_path.errors.any? %>
+<%= form_with(url: semester_course_enrolls_path, method:"post",  class:'form', id:'select_all_course') do |form| %>
+
+  <%# if enroll.errors.any? %>
 <!--    <div id="error_explanation">-->
-<!--      <h2><%#= pluralize(semester_course.errors.count, "error") %> prohibited this semester_curriculum from being saved:</h2>-->
+<!--      <h2><%#= pluralize(enroll.errors.count, "error") %> prohibited this enroll from being saved:</h2>-->
 
 <!--      <ul>-->
-        <%# semester_course.errors.full_messages.each do |message| %>
+        <%# enroll.errors.full_messages.each do |message| %>
 <!--          <li><%#= message %></li>-->
         <%# end %>
 <!--      </ul>-->
 <!--    </div>-->
   <%# end %>
 
-<!--  <div class="field">-->
-    <%#= form.label :grade %>
-    <%#= form.text_field :grade %>
-<!--  </div>-->
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.number_field :student_id %>
+  </div>
 
   <div class="field">
     <%= form.label :semester_id %>
@@ -30,14 +31,13 @@
       <%= curr.coursename %>
       <%= check_box_tag name='selected_course_ids[]', value  = curr.courseid %>
     <% end %>
-
-
-
   </div>
 
+
+
   <div class="field">
-    <%= form.label :student_id %>
-    <%= form.text_field :student_id %>
+    <%= form.label :semester_curriculums_id %>
+    <%= form.text_field :semester_curriculums_id %>
   </div>
 
   <div class="actions">

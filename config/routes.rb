@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :semester_curriculums
+
+  resources :enrolls do
+  collection do
+    post :semester_course
+  end
+end
   resources :students
   resources :semesters
   resources :curriculums
@@ -9,6 +14,11 @@ Rails.application.routes.draw do
       get :test_form
     end
   end
+
+  resources :semester_curriculums
+
+
+
   devise_for :users
   root 'home#index'
   get 'home/index'

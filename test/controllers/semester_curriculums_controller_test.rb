@@ -17,7 +17,7 @@ class SemesterCurriculumsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create semester_curriculum" do
     assert_difference('SemesterCurriculum.count') do
-      post semester_curriculums_url, params: { semester_curriculum: { curriculum_id: @semester_curriculum.curriculum_id, grade: @semester_curriculum.grade, references: @semester_curriculum.references, semester_id: @semester_curriculum.semester_id } }
+      post semester_curriculums_url, params: { semester_curriculum: { curriculum_id: @semester_curriculum.curriculum_id, grade: @semester_curriculum.grade, semester_id: @semester_curriculum.semester_id, student_id: @semester_curriculum.student_id } }
     end
 
     assert_redirected_to semester_curriculum_url(SemesterCurriculum.last)
@@ -34,7 +34,7 @@ class SemesterCurriculumsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update semester_curriculum" do
-    patch semester_curriculum_url(@semester_curriculum), params: { semester_curriculum: { curriculum_id: @semester_curriculum.curriculum_id, grade: @semester_curriculum.grade, references: @semester_curriculum.references, semester_id: @semester_curriculum.semester_id } }
+    patch semester_curriculum_url(@semester_curriculum), params: { semester_curriculum: { curriculum_id: @semester_curriculum.curriculum_id, grade: @semester_curriculum.grade, semester_id: @semester_curriculum.semester_id, student_id: @semester_curriculum.student_id } }
     assert_redirected_to semester_curriculum_url(@semester_curriculum)
   end
 

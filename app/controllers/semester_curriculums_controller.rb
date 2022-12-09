@@ -11,9 +11,15 @@ class SemesterCurriculumsController < ApplicationController
   end
 
   # GET /semester_curriculums/new
-  def new
-    @semester_curriculum = SemesterCurriculum.new
-  end
+  # def new
+  #
+  #   @semester_curriculum = SemesterCurriculum.new
+  #
+  # end
+
+
+
+
 
   # GET /semester_curriculums/1/edit
   def edit
@@ -21,7 +27,7 @@ class SemesterCurriculumsController < ApplicationController
 
   # POST /semester_curriculums or /semester_curriculums.json
   def create
-    @semester_curriculum = SemesterCurriculum.new(semester_curriculum_params)
+     @semester_curriculum = SemesterCurriculum.new(semester_curriculum_params)
 
     respond_to do |format|
       if @semester_curriculum.save
@@ -65,6 +71,6 @@ class SemesterCurriculumsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def semester_curriculum_params
-      params.require(:semester_curriculum).permit(:semester_id, :curriculum_id, :references, :grade)
+      params.require(:semester_curriculum).permit(:grade, :semester_id, :curriculum_id, :student_id)
     end
 end
